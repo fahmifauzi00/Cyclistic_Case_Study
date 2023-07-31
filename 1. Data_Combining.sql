@@ -1,10 +1,10 @@
 /* Data Combining */
 
-DROP TABLE IF EXISTS bike_tripdata_2022.combined_tripdata;
+DROP TABLE IF EXISTS `bike_tripdata_2022.combined_tripdata`;
 
 /* Combining all the 12 months data tables into a single table containing data from Jan 2022 to Dec 2022 */
 
-CREATE TABLE IF NOT EXISTS bike_tripdata_2022.combined_tripdata AS
+CREATE TABLE IF NOT EXISTS `bike_tripdata_2022.combined_tripdata` AS
 SELECT *
 FROM (
      SELECT * FROM `biketripdata2022.bike_tripdata_2022.jan_tripdata`
