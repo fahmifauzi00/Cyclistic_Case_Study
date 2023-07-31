@@ -35,6 +35,6 @@ FROM (
 /* Checking the no. of rows */
 
 SELECT COUNT(*)
-FROM bike_tripdata_2022.combined_tripdata
+FROM `bike_tripdata_2022.combined_tripdata`
 
 /* There are 5667245 rows */
