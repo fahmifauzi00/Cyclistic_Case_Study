@@ -14,7 +14,7 @@ FROM `biketripdata2022.bike_tripdata_2022.cleaned_combined_tripdata`
 GROUP BY month, member_casual
 ORDER BY member_casual;
 
---Total trips by day of week
+--Total trips by day of the week
 
 SELECT day_of_week, member_casual, COUNT(ride_id) AS total_trips
 FROM `biketripdata2022.bike_tripdata_2022.cleaned_combined_tripdata`
@@ -34,30 +34,15 @@ SELECT month, member_casual, AVG(ride_length) AS avg_ride_duration
 FROM `biketripdata2022.bike_tripdata_2022.cleaned_combined_tripdata`
 GROUP BY month, member_casual;
 
---Average ride time by day of week
+--Average ride time by day of the week
 
 SELECT day_of_week, member_casual, AVG(ride_length) AS avg_ride_duration
 FROM `biketripdata2022.bike_tripdata_2022.cleaned_combined_tripdata`
 GROUP BY day_of_week, member_casual;
 
---Average ride time by hour
+--Average ride time by the hour
 
 SELECT EXTRACT(HOUR FROM started_at) AS hour_of_day, member_casual, AVG(ride_length) AS avg_ride_duration
 FROM `biketripdata2022.bike_tripdata_2022.cleaned_combined_tripdata`
 GROUP BY hour_of_day, member_casual;
 
---Start station locations
-
-SELECT start_station_name, member_casual,
-  AVG(start_lat) AS start_lat, AVG(start_lng) AS start_lng,
-  COUNT(ride_id) AS total_trips
-FROM `biketripdata2022.bike_tripdata_2022.cleaned_combined_tripdata`
-GROUP BY start_station_name, member_casual;
-
---End station locations
-
-SELECT end_station_name, member_casual,
-  AVG(end_lat) AS end_lat, AVG(end_lng) AS end_lng,
-  COUNT(ride_id) AS total_trips
-FROM `biketripdata2022.bike_tripdata_2022.cleaned_combined_tripdata`
-GROUP BY end_station_name, member_casual;
